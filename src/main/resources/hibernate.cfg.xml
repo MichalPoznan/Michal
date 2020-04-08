@@ -20,7 +20,7 @@
         <property name="connection.password"></property>
 
         <!-- JDBC connection pool (use the built-in) -->
-        <property name="connection.pool_size">1</property>
+        <property name="connection.pool_size">2</property>
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.H2Dialect</property>
@@ -36,8 +36,8 @@
         <property name="hbm2ddl.auto">validate</property>
 
         <!-- Names the annotated entity class -->
-        <mapping class="io.github.mat3e.lang.Todo"/>
-        <mapping class="io.github.mat3e.lang.Todo"/>
+        <mapping class="io.github.mat3e.lang.Lang"/>
+        <mapping class="io.github.mat3e.todo.Todo"/>
 
     </session-factory>
 
