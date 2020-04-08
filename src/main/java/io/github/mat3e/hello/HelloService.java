@@ -1,5 +1,7 @@
-package io.github.mat3e;
+package io.github.mat3e.hello;
 
+import io.github.mat3e.lang.Lang;
+import io.github.mat3e.lang.LangRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,14 +11,15 @@ class HelloService {
     static final String FALLBACK_NAME = "world";
     static final Lang FALLBACK_LANG = new Lang(1, "Hello", "en");
     private final Logger logger = LoggerFactory.getLogger(HelloService.class);
+
     private LangRepository repository;
 
     HelloService() {
         this(new LangRepository());
     }
 
-    HelloService(LangRepository repositry) {
-        this.repository = repositry;
+    HelloService(LangRepository repository) {
+        this.repository = repository;
     }
 
     String prepareGreeting(String name, String langId) {
