@@ -11,13 +11,36 @@ class TodoRepository {
         var session = HibernateUtil.getSessionFactory().openSession();
         var transaction = session.beginTransaction();
 
-        var result = session.createQuery("from todo", Todo.class).list();
+        var result = session.createQuery("from Todo", Todo.class).list();
 
         transaction.commit();
         session.close();
         return result;
     }
 
+    Todo toogleTodo(Integer id) {
+        var session = HibernateUtil.getSessionFactory().openSession();
+        var transaction = session.beginTransaction();
+
+        var result = session.get(Todo.class, id);
+
+        result.setDone(!result.getDone());
+
+        transaction.commit();
+        session.close();
+        return result;
+    }
+
+    Todo addTodo(Todo newTodo){
+        var session = HibernateUtil.getSessionFactory().openSession();
+        var transaction = session.beginTransaction();
+        session.persist(newTodo);
+//        newTodo
+        //session.g
+        transaction.commit();
+        session.close();
+        return newTodo;
+    }
 //    public Optional<Todo> findById(Integer id) {
 //        var session = HibernateUtil.getSessionFactory().openSession();
 //        var transaction = session.beginTransaction();
